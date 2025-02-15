@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "Fishers-Of-Men",
+  base: "/Fishers-Of-Men/",
   optimizeDeps: {
     exclude: [
       /* other packages to exclude, but NOT 'lucide-react' */
