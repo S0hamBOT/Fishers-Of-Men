@@ -288,4 +288,216 @@ export const problemData = {
       },
     ],
   },
+
+  "valid-anagram": {
+    title: "Valid Anagram",
+    description:
+      "Given two strings s and t, return true if t is an anagram of s, and false otherwise. An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+    difficulty: "Easy",
+    category: "Strings",
+    examples: [
+      {
+        input: 's = "anagram", t = "nagaram"',
+        output: "true",
+        explanation: "",
+      },
+      {
+        input: 's = "rat", t = "car"',
+        output: "false",
+        explanation: "",
+      },
+    ],
+  },
+  "reverse-only-letters": {
+    title: "Reverse Only Letters",
+    description:
+      "Given a string s, reverse the string according to the following rules: Only the letters can be reversed, not the non-letter characters. Preserve the position of the non-letter characters.",
+    difficulty: "Easy",
+    category: "Strings",
+    examples: [
+      {
+        input: 's = "ab-cd"',
+        output: '"dc-ba"',
+        explanation: "",
+      },
+      {
+        input: 's = "a-bC-dEf-ghIj"',
+        output: '"j-Ih-gfE-dC-ba"',
+        explanation: "",
+      },
+    ],
+  },
+  "longest-common-prefix": {
+    title: "Longest Common Prefix",
+    description:
+      'Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".',
+    difficulty: "Easy",
+    category: "Strings",
+    examples: [
+      {
+        input: 'strs = ["flower","flow","flight"]',
+        output: '"fl"',
+        explanation: "",
+      },
+      {
+        input: 'strs = ["dog","racecar","car"]',
+        output: '""',
+        explanation: "",
+      },
+    ],
+  },
+  "reverse-vowels-of-a-string": {
+    title: "Reverse Vowels of a String",
+    description:
+      "Given a string s, reverse only the vowels of the string and return the new string.",
+    difficulty: "Easy",
+    category: "Strings",
+    examples: [
+      {
+        input: 's = "hello"',
+        output: '"holle"',
+        explanation: "",
+      },
+      {
+        input: 's = "leetcode"',
+        output: '"leotcede"',
+        explanation: "",
+      },
+    ],
+  },
+  "isomorphic-strings": {
+    title: "Isomorphic Strings",
+    description:
+      "Given two strings s and t, determine if they are isomorphic. Two strings s and t are isomorphic if the characters in s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.",
+    difficulty: "Easy",
+    category: "Strings",
+    examples: [
+      {
+        input: 's = "egg", t = "add"',
+        output: "true",
+        explanation: "",
+      },
+      {
+        input: 's = "foo", t = "bar"',
+        output: "false",
+        explanation: "",
+      },
+    ],
+  },
+  "reorganize-string": {
+    title: "Reorganize String",
+    description:
+      'Given a string s, rearrange the characters of s so that any two adjacent characters are not the same. Return any possible rearrangement of s that satisfies this condition. If no possible rearrangement exists, return an empty string "".',
+    difficulty: "Medium",
+    category: "Strings",
+    examples: [
+      {
+        input: 's = "aab"',
+        output: '"aba"',
+        explanation: "",
+      },
+      {
+        input: 's = "aaab"',
+        output: '""',
+        explanation: "",
+      },
+    ],
+  },
+  "group-anagrams": {
+    title: "Group Anagrams",
+    description:
+      "Given an array of strings strs, group anagrams together. You can return the answer in any order.",
+    difficulty: "Medium",
+    category: "Strings",
+    examples: [
+      {
+        input: 'strs = ["eat","tea","tan","ate","nat","bat"]',
+        output: '[["bat"],["nat","tan"],["ate","eat","tea"]]',
+        explanation: "",
+      },
+      {
+        input: 'strs = [""]',
+        output: '[[""]]',
+        explanation: "",
+      },
+      {
+        input: 'strs = ["a"]',
+        output: '[["a"]]',
+        explanation: "",
+      },
+    ],
+  },
+  "longest-palindromic-substring": {
+    title: "Longest Palindromic Substring",
+    description:
+      "Given a string s, return the longest palindromic substring in s.",
+    difficulty: "Medium",
+    category: "Strings",
+    examples: [
+      {
+        input: 's = "babad"',
+        output: '"bab"',
+        explanation: '"aba" is also a valid answer.',
+      },
+      {
+        input: 's = "cbbd"',
+        output: '"bb"',
+        explanation: "",
+      },
+    ],
+  },
+  "find-the-index-of-the-first-occurrence-in-a-string": {
+    title: "Find the Index of the First Occurrence in a String",
+    description:
+      "Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.",
+    difficulty: "Easy",
+    category: "Strings",
+    examples: [
+      {
+        input: 'haystack = "sadbutsad", needle = "sad"',
+        output: "0",
+        explanation: "",
+      },
+      {
+        input: 'haystack = "leetcode", needle = "leeto"',
+        output: "-1",
+        explanation: "",
+      },
+    ],
+  },
+  "string-to-integer-atoi": {
+    title: "String to Integer (atoi)",
+    description:
+      "Implement the myAtoi(string s) function, which converts a string into a 32-bit signed integer (integer). The algorithm for myAtoi(string s) is as follows: Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is '-' or '+'. Assume this is the sign of the integer to be converted (default positive). If neither '-' nor '+' is present, assume the integer is positive. Read in next the characters until the next non-digit character or the end of the input is reached. Convert these digits into an integer (int). Return the final integer.",
+    difficulty: "Medium",
+    category: "Strings",
+    examples: [
+      {
+        input: 's = "42"',
+        output: "42",
+        explanation: "",
+      },
+      {
+        input: 's = "   -42"',
+        output: "-42",
+        explanation: "",
+      },
+      {
+        input: 's = "4193 with words"',
+        output: "4193",
+        explanation: "",
+      },
+    ],
+  },
+  "string-compression": {
+    title: "String Compression",
+    description:
+      "Given an array of characters chars, compress it using the following algorithm: Begin with an empty string s. For each group of consecutive repeating characters in chars: If the group's length is 1, append the character to s. Otherwise, append the character followed by the group's length. The compressed string s should not be returned separately, but instead be written directly to the input array chars. As the compressed string might be shorter than the original array, overwrite the characters beyond the new length with any value. Return the new length of the compressed array.",
+    difficulty: "Medium",
+    category: "Strings",
+    examples: {
+      input: 'chars = ["a","a","b","b","c","c","c"]',
+      output: "6",
+    },
+  },
 };
