@@ -289,7 +289,7 @@ export function Login() {
       <div className="relative">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative bg-white rounded-lg shadow-lg w-full max-w-4xl flex overflow-hidden z-10">
-          <div className="w-1/2 p-8 flex flex-col items-center justify-center bg-yellow-50 rounded-l-lg relative">
+          <div className="w-1/2 p-8 flex flex-col items-center justify-center bg-blue-50 rounded-l-lg relative">
             <img
               src={currentImage}
               alt="Login Illustration"
@@ -297,7 +297,7 @@ export function Login() {
               style={{ width: "auto", height: "auto" }}
               onError={() => setCurrentImage(image1)}
             />
-            <h2 className="text-2xl font-bold text-center text-purple-800 mb-2 text-white">
+            <h2 className="text-2xl font-bold text-center text-blue-800 mb-2 text-white">
               {currentMessage}
             </h2>
           </div>
