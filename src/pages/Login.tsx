@@ -125,15 +125,25 @@ import { useAuth } from "../contexts/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
+// Import images (adjust paths as needed)
+import image1 from "/src/icons/login-illustration-1.jpg";
+import image2 from "/src/icons/login-illustration-2.jpg";
+import image3 from "/src/icons/login-illustration-3.jpg";
+import image4 from "/src/icons/login-illustration-4.jpg";
+import image5 from "/src/icons/login-illustration-5.jpg";
+import image6 from "/src/icons/login-illustration-6.png";
+import image7 from "/src/icons/login-illustration-7.jpg";
+import defaultImage from "/src/icons/login-illustration-1.jpg"; // Fallback image
+
 const images = [
-  "https://storage.googleapis.com/a1aa/image/cSpFepiqkIjj8mG6cZzn7AVJ0aiM08ERp2fnDSFh5rE.jpg",
-  "/src/icons/login-illustration-1.jpg",
-  "/src/icons/login-illustration-2.jpg",
-  "/src/icons/login-illustration-3.jpg",
-  "/src/icons/login-illustration-4.jpg",
-  "/src/icons/login-illustration-5.jpg",
-  "/src/icons/login-illustration-6.png",
-  "/src/icons/login-illustration-7.jpg",
+  "https://storage.googleapis.com/a1aa/image/cSpFepiqkIjj8mG6cZzn7AVJ0aiM08ERp2fnDSFh5rE.jpg", // Skeleton working on laptop
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
 ];
 
 const messages = [
@@ -143,7 +153,6 @@ const messages = [
   "May your compiler errors be easier to fix than your sleep schedule!",
   "May your login be successful! Unlike your last relationship.",
   "Hope this login is faster than your last breakup recovery!",
-  // ... more messages
 ];
 
 export function Login() {
@@ -153,8 +162,8 @@ export function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [currentImage, setCurrentImage] = useState(images[0]);
-  const [currentMessage, setCurrentMessage] = useState(messages[0]);
+  const [currentImage, setCurrentImage] = useState(defaultImage);
+  const [currentMessage, setCurrentMessage] = useState("");
   const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -162,9 +171,20 @@ export function Login() {
   const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    setCurrentImage(images[randomIndex]);
-    setCurrentMessage(messages[randomIndex]);
+    const shuffleArray = (array: string[]) => {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+      return newArray;
+    };
+
+    const shuffledImages = shuffleArray(images);
+    const shuffledMessages = shuffleArray(messages);
+
+    setCurrentImage(shuffledImages[0]);
+    setCurrentMessage(shuffledMessages[0]);
   }, []);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
@@ -201,6 +221,7 @@ export function Login() {
             alt="Login Image"
             className="mb-4 max-w-full"
             style={{ width: "auto", height: "auto" }}
+            onError={() => setCurrentImage(defaultImage)}
           />
           <h2 className="text-2xl font-bold text-center text-purple-800 mb-2">
             {currentMessage}
