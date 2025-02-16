@@ -287,22 +287,6 @@ function Dashboard() {
     loadUserData();
   }, []);
 
-  const calculateTopicProgress = () => {
-    if (!userData?.problemProgress) return {};
-    const progress: Record<string, number> = {};
-    Object.entries(userData.problemProgress).forEach(
-      ([id, data]: [string, any]) => {
-        if (data.completed) {
-          const problem = problemData[id];
-          if (problem) {
-            progress[problem.category] = (progress[problem.category] || 0) + 1;
-          }
-        }
-      }
-    );
-    return progress;
-  };
-
   return (
     <div className="mx-auto max-w-7xl p-8">
       <h1 className="text-2xl font-semibold text-gray-900 mb-6">
