@@ -3,14 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://S0hamBOT.github.io/Fishers-Of-Men",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
@@ -43,7 +40,4 @@
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"
   }
-
-
-
 }
