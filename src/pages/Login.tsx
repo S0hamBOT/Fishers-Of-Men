@@ -297,12 +297,12 @@ export function Login() {
               style={{ width: "auto", height: "auto" }}
               onError={() => setCurrentImage(image1)}
             />
-            <h2 className="text-2xl font-bold text-center text-blue-800 mb-2 text-white">
+            <h2 className="text-2xl font-bold text-center text-red-800 mb-2 text-purple">
               {currentMessage}
             </h2>
           </div>
           <div className="w-1/2 p-8 flex flex-col justify-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center text-white">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center text-black">
               {isSignUp ? "Create an account" : "Sign in to your account"}
             </h2>
             <form className="space-y-4" onSubmit={handleSubmit}>

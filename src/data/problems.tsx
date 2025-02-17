@@ -500,4 +500,313 @@ export const problemData = {
       output: "6",
     },
   },
+  "delete-n-nodes-after-m-nodes": {
+    title: "Delete N Nodes after M Nodes",
+    description:
+      "Given the head of a linked list and two integers m and n. Traverse the linked list and delete n nodes after every m nodes.",
+    difficulty: "Easy",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [1,2,3,4,5,6,7,8,9,10,11,12,13], m = 2, n = 3",
+        output: "[1,2,6,7,11,12]",
+        explanation: "",
+      },
+      {
+        input: "head = [1,2,3,4,5,6,7,8,9,10,11], m = 1, n = 2",
+        output: "[1,4,7,10]",
+        explanation: "",
+      },
+    ],
+  },
+  "merge-two-sorted-lists": {
+    title: "Merge Two Sorted Lists",
+    description:
+      "You are given the heads of two sorted linked lists list1 and list2. Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists. Return the head of the merged linked list.",
+    difficulty: "Easy",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "l1 = [1,2,4], l2 = [1,3,4]",
+        output: "[1,1,2,3,4,4]",
+        explanation: "",
+      },
+      {
+        input: "l1 = [], l2 = []",
+        output: "[]",
+        explanation: "",
+      },
+      {
+        input: "l1 = [], l2 = [0]",
+        output: "[0]",
+        explanation: "",
+      },
+    ],
+  },
+  "print-kth-node-from-the-end": {
+    title: "Print kth Node from the End",
+    description:
+      "Given the head of a linked list, remove the nth node from the end of the list and return its head.",
+    difficulty: "Easy",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [1,2,3,4,5], n = 2",
+        output: "[1,2,3,5]",
+        explanation: "",
+      },
+      {
+        input: "head = [1], n = 1",
+        output: "[]",
+        explanation: "",
+      },
+      {
+        input: "head = [1,2], n = 1",
+        output: "[1]",
+        explanation: "",
+      },
+    ],
+  },
+  "intersection-of-two-linked-lists": {
+    title: "Intersection of Two Linked Lists",
+    description:
+      "Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.",
+    difficulty: "Easy",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5]",
+        output: "8",
+        explanation: "",
+      },
+      {
+        input: "intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4]",
+        output: "2",
+        explanation: "",
+      },
+      {
+        input: "intersectVal = 0, listA = [2,6,4], listB = [1,5]",
+        output: "null",
+        explanation: "",
+      },
+    ],
+  },
+  "sort-lists-using-merge-sort": {
+    title: "Sort Lists using Merge Sort",
+    description:
+      "Given the head of a linked list, return the list sorted in ascending order.",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [-1,5,3,4,0]",
+        output: "[-1,0,3,4,5]",
+        explanation: "",
+      },
+      {
+        input: "head = []",
+        output: "[]",
+        explanation: "",
+      },
+      {
+        input: "head = [0]",
+        output: "[0]",
+        explanation: "",
+      },
+    ],
+  },
+  f4: {
+    title: "F4 Linked List Problem",
+    description:
+      "This is a placeholder for the actual problem description for the 'f4' linked list problem.  Please replace this with the correct problem statement.",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [], // Add examples as needed
+  },
+  "flatten-linked-list": {
+    title: "Flatten Linked List",
+    description:
+      "You are given a doubly linked list of nodes. In addition to the next and prev pointers, each node has a child pointer, which may or may not point to a separate doubly linked list. These child lists may have one or more levels of their own, and so on. Flatten the list such that all nodes appear in a single, doubly linked list. You must flatten the list in-place (i.e., without creating a new list).",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]",
+        output: "[1,2,3,7,8,11,12,9,10,4,5,6]",
+        explanation: "",
+      },
+    ],
+  },
+  "copy-list-with-random-pointer": {
+    title: "Copy List with Random Pointer",
+    description:
+      "A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null. Construct a deep copy of the list. The copy should be a new list, where each node in the new list has its val set to the same as the original node's val, and the pointers of the new list's nodes (next and random) should point to new nodes in the copied list.",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
+        output: "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
+        explanation: "",
+      },
+      {
+        input: "head = [[1,1],[2,1]]",
+        output: "[[1,1],[2,1]]",
+        explanation: "",
+      },
+      {
+        input: "head = [[3,null]]",
+        output: "[[3,null]]",
+        explanation: "",
+      },
+    ],
+  },
+  "rotate-list": {
+    title: "Rotate List",
+    description:
+      "Given the head of a linked list, rotate the list to the right by k steps.",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [1,2,3,4,5], k = 2",
+        output: "[4,5,1,2,3]",
+        explanation: "",
+      },
+      {
+        input: "head = [0,1,2], k = 4",
+        output: "[2,0,1]",
+        explanation: "",
+      },
+    ],
+  },
+  "find-minimum-and-maximum-number-of-nodes-between-critical-points": {
+    title: "Find Minimum and Maximum Number of Nodes Between Critical Points",
+    description:
+      "A critical point in a linked list is a node that is not the first node and not the last node, and either its value is strictly greater than both of its neighbors, or its value is strictly smaller than both of its neighbors. Given the head of a linked list, return an array [minDistance, maxDistance] where minDistance is the minimum distance between any two distinct critical points and maxDistance is the maximum distance between any two distinct critical points. If there are no critical points, return [-1, -1].",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [3,1,4,1,1,1,2]",
+        output: "[1,3]",
+        explanation: "",
+      },
+      {
+        input: "head = [5,3,1,2,3]",
+        output: "[1,2]",
+        explanation: "",
+      },
+      {
+        input: "head = [1,3,2]",
+        output: "[-1,-1]",
+        explanation: "",
+      },
+    ],
+  },
+  "merge-nodes-in-between-zeros": {
+    title: "Merge Nodes in between Zeros",
+    description:
+      "You are given the head of a linked list, which contains some integers sorted in non-decreasing order. The values 0 and 1 are the only integers that may occur. Merge all the nodes between any two consecutive 0's into a single node whose value is the sum of all the merged nodes. The modified list should not contain any 0's. Return the head of the modified linked list.",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [0,1,2,0,3,4,0]",
+        output: "[0,3,7,0]",
+        explanation: "",
+      },
+      {
+        input: "head = [0,1,0,3,0,2,0]",
+        output: "[0,1,3,2,0]",
+        explanation: "",
+      },
+    ],
+  },
+  "odd-even-linked-list": {
+    title: "Odd Even Linked List",
+    description:
+      "Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list. The first node is considered odd, and the second node is considered even, and so on. The relative order inside both the even and odd groups should remain as it was in the input. You must solve the problem in O(1) extra space complexity.",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [1,2,3,4,5]",
+        output: "[1,3,5,2,4]",
+        explanation: "",
+      },
+      {
+        input: "head = [2,1,3,5,6,4,7]",
+        output: "[2,3,6,7,1,5,4]",
+        explanation: "",
+      },
+    ],
+  },
+  "double-a-number-represented-as-a-linked-list": {
+    title: "Double a Number Represented as a Linked List",
+    description:
+      "You are given the head of a non-empty linked list representing a non-negative integer without leading zeroes. Return the head of the linked list after doubling it.",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [1,8,9]",
+        output: "[3,7,8]",
+        explanation: "",
+      },
+      {
+        input: "head = [9,9,9]",
+        output: "[1,9,9,8]",
+        explanation: "",
+      },
+    ],
+  },
+  "remove-zero-sum-consecutive-nodes-from-linked-list": {
+    title: "Remove Zero Sum Consecutive Nodes from Linked List",
+    description:
+      "Given the head of a linked list, remove all consecutive sublists of nodes that sum to 0, and return the head of the modified linked list.",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [1,2,-2,-1]",
+        output: "[1]",
+        explanation: "",
+      },
+      {
+        input: "head = [1,2,-3,3,1]",
+        output: "[1,1]",
+        explanation: "",
+      },
+      {
+        input: "head = [1,2,3,-3,-2]",
+        output: "[1]",
+        explanation: "",
+      },
+    ],
+  },
+  "swapping-nodes-in-a-linked-list": {
+    title: "Swapping Nodes in a Linked List",
+    description:
+      "You are given the head of a linked list, and an integer k. Return the head of the linked list after swapping the nodes at the kth position from the front and the kth position from the end (the positions are 1-indexed).",
+    difficulty: "Medium",
+    category: "Linked Lists",
+    examples: [
+      {
+        input: "head = [1,2,3,4,5], k = 2",
+        output: "[4,2,3,1,5]",
+        explanation: "",
+      },
+      {
+        input: "head = [7,9,6,6,7,8,3,0,9,5], k = 5",
+        output: "[7,9,6,6,8,7,3,0,9,5]",
+        explanation: "",
+      },
+      {
+        input: "head = [1], k = 1",
+        output: "[1]",
+        explanation: "",
+      },
+    ],
+  },
 };

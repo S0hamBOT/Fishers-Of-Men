@@ -280,6 +280,134 @@ const problems: Problem[] = [
     leetCodeUrl:
       "https://leetcode.com/problems/number-of-laser-beams-in-a-bank",
   },
+
+  {
+    id: "delete-n-nodes-after-m-nodes",
+    title: "Delete N Nodes after M Nodes",
+    category: "Linked Lists",
+    difficulty: "Easy",
+    timeEstimate: "25 min",
+    leetCodeUrl:
+      "https://leetcode.com/problems/delete-n-nodes-after-m-nodes-in-a-linked-list",
+  },
+  {
+    id: "merge-two-sorted-lists",
+    title: "Merge Two Sorted Lists",
+    category: "Linked Lists",
+    difficulty: "Easy",
+    timeEstimate: "20 min",
+    leetCodeUrl: "https://leetcode.com/problems/merge-two-sorted-lists",
+  },
+  {
+    id: "print-kth-node-from-the-end",
+    title: "Print kth Node from the End",
+    category: "Linked Lists",
+    difficulty: "Easy",
+    timeEstimate: "20 min",
+    leetCodeUrl: "https://leetcode.com/problems/nth-node-from-end-of-list",
+  },
+  {
+    id: "intersection-of-two-linked-lists",
+    title: "Intersection of Two Linked Lists",
+    category: "Linked Lists",
+    difficulty: "Easy",
+    timeEstimate: "25 min",
+    leetCodeUrl:
+      "https://leetcode.com/problems/intersection-of-two-linked-lists",
+  },
+  {
+    id: "sort-lists-using-merge-sort",
+    title: "Sort Lists using Merge Sort",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "35 min",
+    leetCodeUrl: "https://leetcode.com/problems/sort-list",
+  },
+  {
+    id: "f4",
+    title: "F4 Linked List Problem",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "30 min",
+    leetCodeUrl: "",
+  },
+  {
+    id: "flatten-linked-list",
+    title: "Flatten Linked List",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "35 min",
+    leetCodeUrl:
+      "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list",
+  },
+  {
+    id: "copy-list-with-random-pointer",
+    title: "Copy List with Random Pointer",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "35 min",
+    leetCodeUrl: "https://leetcode.com/problems/copy-list-with-random-pointer",
+  },
+  {
+    id: "rotate-list",
+    title: "Rotate List",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "30 min",
+    leetCodeUrl: "https://leetcode.com/problems/rotate-list",
+  },
+  {
+    id: "find-minimum-and-maximum-number-of-nodes-between-critical-points",
+    title: "Find Minimum and Maximum Number of Nodes Between Critical Points",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "40 min",
+    leetCodeUrl:
+      "https://leetcode.com/problems/find-minimum-and-maximum-number-of-nodes-between-critical-points",
+  },
+  {
+    id: "merge-nodes-in-between-zeros",
+    title: "Merge Nodes in between Zeros",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "30 min",
+    leetCodeUrl: "https://leetcode.com/problems/merge-nodes-in-between-zeros",
+  },
+  {
+    id: "odd-even-linked-list",
+    title: "Odd Even Linked List",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "25 min",
+    leetCodeUrl: "https://leetcode.com/problems/odd-even-linked-list",
+  },
+  {
+    id: "double-a-number-represented-as-a-linked-list",
+    title: "Double a Number Represented as a Linked List",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "35 min",
+    leetCodeUrl:
+      "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list",
+  },
+  {
+    id: "remove-zero-sum-consecutive-nodes-from-linked-list",
+    title: "Remove Zero Sum Consecutive Nodes from Linked List",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "40 min",
+    leetCodeUrl:
+      "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list",
+  },
+  {
+    id: "swapping-nodes-in-a-linked-list",
+    title: "Swapping Nodes in a Linked List",
+    category: "Linked Lists",
+    difficulty: "Medium",
+    timeEstimate: "30 min",
+    leetCodeUrl:
+      "https://leetcode.com/problems/swapping-nodes-in-a-linked-list",
+  },
 ];
 
 interface ProblemListProps {

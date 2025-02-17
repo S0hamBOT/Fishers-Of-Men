@@ -93,7 +93,7 @@ function Dashboard() {
 
   return (
     <div className="mx-auto max-w-7xl p-8">
-      <h1 className="text-2xl font-semibold text-gray-900 mb-4">
+      <h1 className="text-2xl font-semibold text-white-900 mb-4">
         Welcome back, {userData?.name || "Student"}!
       </h1>
       <p className="text-sm text-gray-500 mb-6">
