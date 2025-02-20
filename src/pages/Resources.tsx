@@ -76,126 +76,129 @@ import {
   FaChartLine,
   FaBook,
   FaBrain,
+  FaLaptopCode,
   FaProjectDiagram,
   FaNewspaper,
+  FaQuestionCircle,
 } from "react-icons/fa";
 
 export function Resources() {
+  const resources = [
+    {
+      title: "Coding Practice",
+      icon: <FaCode className="text-blue-500 text-2xl" />,
+      links: [{ name: "LeetCode", url: "https://leetcode.com" }],
+    },
+    {
+      title: "Visualization",
+      icon: <FaChartLine className="text-green-500 text-2xl" />,
+      links: [{ name: "Visual Go", url: "https://visualgo.net" }],
+    },
+    {
+      title: "Tutorials",
+      icon: <FaBook className="text-purple-500 text-2xl" />,
+      links: [
+        { name: "W3Schools", url: "https://w3schools.com" },
+        { name: "GeeksForGeeks", url: "https://geeksforgeeks.org" },
+      ],
+    },
+    {
+      title: "AI Tools",
+      icon: <FaBrain className="text-red-500 text-2xl" />,
+      subcategories: [
+        {
+          subtitle: "For Conceptual Understanding",
+          links: [
+            { name: "ChatGPT", url: "https://chat.com" },
+            { name: "Gemini", url: "https://gemini.google.com" },
+            { name: "Claude", url: "https://claude.ai" },
+          ],
+        },
+        {
+          subtitle: "Coding Assistance",
+          links: [{ name: "Blackbox", url: "https://blackbox.ai" }],
+        },
+      ],
+    },
+    {
+      title: "Full-Fledged Projects",
+      icon: <FaProjectDiagram className="text-indigo-500 text-2xl" />,
+      links: [{ name: "Bolt", url: "https://bolt.new" }],
+    },
+    {
+      title: "Stay Updated",
+      icon: <FaNewspaper className="text-yellow-500 text-2xl" />,
+      links: [
+        { name: "Medium", url: "https://medium.com" },
+        { name: "Dev.to", url: "https://dev.to" },
+        { name: "Quora", url: "https://quora.com" },
+      ],
+    },
+    {
+      title: "Doubt-Solving (For the OGs)",
+      icon: <FaQuestionCircle className="text-orange-500 text-2xl" />,
+      links: [{ name: "Stack Overflow", url: "https://stackoverflow.com" }],
+    },
+  ];
+
   return (
-    <div className="p-8 bg-gray-100 min-h-screen rounded-lg">
+    <div className="p-8 bg-gray-100 min-h-screen">
       {/* Header */}
-      <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
+      <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2 mb-6">
         <FaBook className="text-blue-500" /> Learning Resources
       </h1>
-      <div className="mt-6 space-y-6 text-gray-800">
-        {/* Coding Practice */}
-        <div>
-          <h2 className="text-xl font-semibold flex items-center gap-2">
-            <FaCode className="text-blue-500" /> For Coding Practice:
-          </h2>
-          <a
-            href="https://leetcode.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:underline ml-6 block"
+
+      {/* Resource Cards */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {resources.map((resource, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition"
           >
-            leetcode.com
-          </a>
-        </div>
-
-        {/* Visualization */}
-        <div>
-          <h2 className="text-xl font-semibold flex items-center gap-2">
-            <FaChartLine className="text-green-500" /> For Visualization:
-          </h2>
-          <a
-            href="https://visualgo.net"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:underline ml-6 block"
-          >
-            visualgo.net
-          </a>
-        </div>
-
-        {/* Tutorials */}
-        <div>
-          <h2 className="text-xl font-semibold flex items-center gap-2">
-            <FaBook className="text-purple-500" /> For Tutorials:
-          </h2>
-          <ul className="ml-6 space-y-2">
-            <li>
-              W3Schools:{" "}
-              <a
-                href="https://w3schools.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
-              >
-                w3schools.com
-              </a>
-            </li>
-            <li>
-              GeekForGeeks:{" "}
-              <a
-                href="https://geeksforgeeks.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
-              >
-                geeksforgeeks.org
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* AI Tools */}
-        <div>
-          <h2 className="text-xl font-semibold flex items-center gap-2">
-            <FaBrain className="text-red-500" /> AI Tools:
-          </h2>
-          <div className="ml-6">
-            <h3 className="font-semibold">For Conceptual Understanding:</h3>
-            <ul className="ml-4 space-y-1 text-gray-700">
-              <li>ChatGPT</li>
-              <li>Gemini</li>
-              <li>Claude</li>
-            </ul>
-            <h3 className="font-semibold mt-3">Coding:</h3>
-            <ul className="ml-4 space-y-1 text-gray-700">
-              <li>Blackbox.ai</li>
-            </ul>
+            <div className="flex items-center gap-3 mb-4">
+              {resource.icon}
+              <h2 className="text-xl font-semibold text-gray-800">
+                {resource.title}
+              </h2>
+            </div>
+            {resource.links && (
+              <ul className="space-y-2">
+                {resource.links.map((link, i) => (
+                  <li key={i}>
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {resource.subcategories &&
+              resource.subcategories.map((sub, i) => (
+                <div key={i} className="mt-3">
+                  <h3 className="font-medium text-gray-700">{sub.subtitle}:</h3>
+                  <ul className="ml-4 space-y-1 text-gray-700">
+                    {sub.links.map((link, j) => (
+                      <li key={j}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:underline"
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
           </div>
-        </div>
-
-        {/* Full-Fledged Projects */}
-        <div>
-          <h2 className="text-xl font-semibold flex items-center gap-2">
-            <FaProjectDiagram className="text-indigo-500" /> For Building
-            Full-Fledged Projects:
-          </h2>
-          <a
-            href="https://bolt.new"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:underline ml-6 block"
-          >
-            Bolt.new
-          </a>
-        </div>
-
-        {/* Reading & Staying Updated */}
-        <div>
-          <h2 className="text-xl font-semibold flex items-center gap-2">
-            <FaNewspaper className="text-yellow-500" /> Pages to Read or Stay
-            Updated:
-          </h2>
-          <ul className="ml-6 space-y-1 text-gray-700">
-            <li>Medium</li>
-            <li>Dev.to</li>
-            <li>Quora</li>
-          </ul>
-        </div>
+        ))}
       </div>
     </div>
   );
