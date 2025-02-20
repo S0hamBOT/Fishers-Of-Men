@@ -180,6 +180,14 @@ import { useAuth } from "../../contexts/AuthContext";
 import { saveProblemNotes, getUserData } from "../../lib/firebase";
 import { problemData } from "../../data/problems";
 
+interface Problem {
+  title: string;
+  difficulty: string;
+  category: string;
+  description?: string;
+  examples?: { input: string; output: string; explanation?: string }[];
+}
+
 interface ProblemDetailProps {
   problemId: string;
   onBack: () => void;
@@ -286,21 +294,23 @@ export function ProblemDetail({ problemId, onBack }: ProblemDetailProps) {
               <ReactMarkdown>{problem.description}</ReactMarkdown>
 
               <h3>Examples</h3>
-              {problem.examples.map((example, index) => (
-                <div key={index} className="bg-gray-50 p-4 rounded-md mb-4">
-                  <pre className="text-sm">
-                    <strong>Input:</strong> {example.input}
-                    <br />
-                    <strong>Output:</strong> {example.output}
-                    {example.explanation && (
-                      <>
-                        <br />
-                        <strong>Explanation:</strong> {example.explanation}
-                      </>
-                    )}
-                  </pre>
-                </div>
-              ))}
+              {problem.examples &&
+                Array.isArray(problem.examples) &&
+                problem.examples.map((example, index) => (
+                  <div key={index} className="bg-gray-50 p-4 rounded-md mb-4">
+                    <pre className="text-sm">
+                      <strong>Input:</strong> {example.input}
+                      <br />
+                      <strong>Output:</strong> {example.output}
+                      {example.explanation && (
+                        <>
+                          <br />
+                          <strong>Explanation:</strong> {example.explanation}
+                        </>
+                      )}
+                    </pre>
+                  </div>
+                ))}
             </div>
           </div>
 

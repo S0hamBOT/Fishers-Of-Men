@@ -186,14 +186,14 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route
+          {/* <Route
             path="/community"
             element={
               <PrivateRoute>
                 <Community />
               </PrivateRoute>
             }
-          />
+          /> */}
           <Route
             path="/calendar"
             element={
