@@ -14,7 +14,7 @@ import { Login } from "./pages/Login";
 import { Quiz } from "./pages/Quiz";
 import { Practice } from "./pages/Practice";
 import { Resources } from "./pages/Resources";
-import { Community } from "./pages/Community";
+import Community from "./pages/Community";
 import { Calendar } from "./pages/Calendar";
 import { RecentActivity } from "./components/RecentActivity";
 import { UpcomingEvents } from "./components/UpcomingEvents";
