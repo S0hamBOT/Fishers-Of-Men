@@ -1,0 +1,49 @@
+```
+Project Root
+├── .bolt
+├── dist
+├── node_modules
+├── src
+│   ├── components
+│   │   ├── AuthRequired.tsx
+│   │   ├── DashboardStats.tsx
+│   │   ├── RecentActivity.tsx
+│   │   ├── Sidebar.tsx
+│   │   ├── UpcomingEvents.tsx
+│   │   ├── practice
+│   │   │   ├── ProblemDetail.tsx
+│   │   │   ├── ProblemList.tsx
+│   ├── contexts
+│   │   ├── AuthContext.tsx
+│   ├── data
+│   │   ├── problems.tsx
+│   ├── icons
+│   ├── lib
+│   │   ├── firebase.ts
+│   ├── pages
+│   │   ├── Calendar.tsx
+│   │   ├── Community.tsx
+│   │   ├── Login.tsx
+│   │   ├── Practice.tsx
+│   │   ├── Quiz.tsx
+│   │   ├── Resources.tsx
+│   ├── photos
+│   ├── types
+│   │   ├── index.ts
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   ├── vite-env.d.ts
+├── .env
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+```
