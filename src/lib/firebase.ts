@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import {
   getFirestore,
   collection,
@@ -47,6 +47,31 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+// List of allowed emails (Alternatively, store in Firestore)
+const allowedEmails = [
+  "sohamjadhav.tech@gmail.com",
+  //"",
+  //"student3@example.com",
+  // Add all 21 emails here
+];
+
+export async function signInWithGoogle() {
+  const provider = new GoogleAuthProvider();
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+
+    // Check if the user's email is in the allowed list
+    if (!user.email || !allowedEmails.includes(user.email)) {
+      throw new Error("Access Denied: You are not registered for this course.");
+    }
+
+    return user;
+  } catch (error) {
+    console.error("Login failed:", (error as any).message);
+    throw error;
+  }
+}
 
 // User Data
 export async function getUserData(userId: string) {
