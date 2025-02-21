@@ -2,6 +2,8 @@
 Project Root
 ├── .bolt
 ├── dist
+    ├── assets
+    |   ├── indec.html
 ├── node_modules
 ├── src
 │   ├── components
