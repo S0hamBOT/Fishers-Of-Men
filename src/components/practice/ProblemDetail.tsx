@@ -177,7 +177,11 @@ import React, { useState, useEffect } from "react";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { useAuth } from "../../contexts/AuthContext";
-import { saveProblemNotes, getUserData } from "../../lib/firebase";
+import {
+  saveProblemNotes,
+  getUserData,
+  saveProblemProgress,
+} from "../../lib/firebase"; // Import saveProblemProgress
 import { problemData } from "../../data/problems";
 
 interface Problem {
@@ -202,6 +206,8 @@ const difficultyColors: Record<string, string> = {
 export function ProblemDetail({ problemId, onBack }: ProblemDetailProps) {
   const [notes, setNotes] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+  const [isSolved, setIsSolved] = useState(false); // New state for solved status
+  const [startTime, setStartTime] = useState<number | null>(null); // New state for start time
   const { user } = useAuth();
   const problem = problemData[problemId as keyof typeof problemData];
 
@@ -212,9 +218,13 @@ export function ProblemDetail({ problemId, onBack }: ProblemDetailProps) {
         if (userData?.problemNotes?.[problemId]) {
           setNotes(userData.problemNotes[problemId].notes);
         }
+        if (userData?.problemProgress?.[problemId]?.completed) {
+          setIsSolved(true); // Set solved status if already completed
+        }
       }
     }
     loadNotes();
+    setStartTime(Date.now()); // Record start time when component mounts
   }, [problemId, user]);
 
   const handleNotesChange = async (
@@ -232,6 +242,19 @@ export function ProblemDetail({ problemId, onBack }: ProblemDetailProps) {
       console.error("Failed to save notes:", error);
     } finally {
       setIsSaving(false);
+    }
+  };
+
+  const handleSolveClick = async () => {
+    if (user) {
+      const endTime = Date.now();
+      const timeSpent = Math.round((endTime - (startTime || endTime)) / 1000); // Time spent in seconds
+      try {
+        await saveProblemProgress(user.uid, problemId, true, timeSpent); // Update problem progress
+        setIsSolved(true);
+      } catch (error) {
+        console.error("Failed to mark problem as solved:", error);
+      }
     }
   };
 
@@ -312,6 +335,19 @@ export function ProblemDetail({ problemId, onBack }: ProblemDetailProps) {
                   </div>
                 ))}
             </div>
+            {!isSolved && (
+              <button
+                onClick={handleSolveClick}
+                className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Mark as Solved
+              </button>
+            )}
+            {isSolved && (
+              <p className="mt-4 text-green-600 font-semibold">
+                Problem Solved!
+              </p>
+            )}
           </div>
 
           <div className="bg-gray-50 rounded-lg p-6">

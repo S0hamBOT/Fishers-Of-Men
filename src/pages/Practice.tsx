@@ -1,16 +1,17 @@
-// import { useState } from "react";
+// import React, { useState } from "react";
 // import { Code2, Filter } from "lucide-react";
 // import { ProblemList } from "../components/practice/ProblemList";
 // import { ProblemDetail } from "../components/practice/ProblemDetail";
 
 // const categories = [
-//   { id: "all", name: "All" },
+//   { id: "all", name: "All Problems" },
 //   { id: "arrays", name: "Arrays" },
 //   { id: "strings", name: "Strings" },
 //   { id: "linked-lists", name: "Linked Lists" },
-//   { id: "trees", name: "Trees" },
+//   { id: "searching-sorting", name: "Searching & Sorting" },
 //   { id: "stacks", name: "Stacks" },
 //   { id: "queues", name: "Queues" },
+//   { id: "trees", name: "Trees" },
 // ];
 
 // export function Practice() {
@@ -23,10 +24,14 @@
 //       <ProblemDetail
 //         problemId={selectedProblem}
 //         onBack={() => setSelectedProblem(null)}
-//         problems={{}} // Pass an empty object
 //       />
 //     );
 //   }
+
+//   const getCategoryDisplayName = (categoryId: string) => {
+//     const category = categories.find((c) => c.id === categoryId);
+//     return category ? category.name : categoryId;
+//   };
 
 //   return (
 //     <div className="flex-1 bg-white">
@@ -53,10 +58,10 @@
 //               onChange={(e) => setSearchQuery(e.target.value)}
 //             />
 //           </div>
-//           {/* <button className="ml-4 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+//           <button className="ml-4 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 //             <Filter className="h-4 w-4 mr-2" />
 //             Filters
-//           </button> */}
+//           </button>
 //         </div>
 
 //         <div className="grid grid-cols-4 gap-6">
@@ -80,10 +85,13 @@
 
 //           <div className="col-span-3">
 //             <ProblemList
-//               category={selectedCategory}
+//               category={
+//                 selectedCategory === "all"
+//                   ? "all"
+//                   : getCategoryDisplayName(selectedCategory)
+//               }
 //               searchQuery={searchQuery}
 //               onProblemSelect={setSelectedProblem}
-//               difficulty={""}
 //             />
 //           </div>
 //         </div>
@@ -92,10 +100,12 @@
 //   );
 // }
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Code2, Filter } from "lucide-react";
 import { ProblemList } from "../components/practice/ProblemList";
 import { ProblemDetail } from "../components/practice/ProblemDetail";
+import { useAuth } from "../contexts/AuthContext";
+import { trackTimeSpent } from "../lib/firebase"; // Import trackTimeSpent
 
 const categories = [
   { id: "all", name: "All Problems" },
@@ -112,6 +122,21 @@ export function Practice() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedProblem, setSelectedProblem] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [startTime, setStartTime] = useState<number | null>(null); // Track start time
+  const { userId } = useAuth(); // Get userId from context
+
+  useEffect(() => {
+    setStartTime(Date.now()); // Record start time when component mounts
+
+    return () => {
+      // Cleanup function to track time spent when component unmounts
+      if (startTime && userId) {
+        const endTime = Date.now();
+        const timeSpent = Math.round((endTime - startTime) / (1000 * 60)); // Time spent in minutes
+        trackTimeSpent(userId, timeSpent);
+      }
+    };
+  }, [userId]);
 
   if (selectedProblem) {
     return (

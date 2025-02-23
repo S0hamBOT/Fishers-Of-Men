@@ -562,11 +562,11 @@
 //   );
 // }
 import React, { useState, useEffect } from "react";
-import { ExternalLink, Clock } from "lucide-react";
+import { Clock, ExternalLink, Check } from "lucide-react";
 import { useAuth } from "../../contexts/AuthContext";
 import {
-  saveProblemProgress,
   getUserData,
+  saveProblemProgress,
   logActivity,
 } from "../../lib/firebase";
 
@@ -1018,7 +1018,7 @@ export function ProblemList({
     if (!user) return;
 
     try {
-      await saveProblemProgress(user.uid, problemId, checked);
+      await saveProblemProgress(user.uid, problemId, checked, 0); // Assuming timeSpent is 0 for now
       setProblemProgress((prev) => ({ ...prev, [problemId]: checked }));
 
       if (checked) {
