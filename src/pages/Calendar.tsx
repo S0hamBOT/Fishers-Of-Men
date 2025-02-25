@@ -98,14 +98,14 @@ export function Calendar() {
     {
       id: "class1",
       name: "Class 1 - 8th Feb",
-      imagePath: "photos/8_Feb.png", // Replace with your image path
+      imagePath: "/src/photos/8_Feb.png", // Replace with your image path
       notes:
         "https://drive.google.com/file/d/1Z0QXtVshOEouWvxrvKOhvEdSHkc5PfdQ/view?usp=sharing", // Replace with your link
     },
     {
       id: "class2",
       name: "Class 2 - 22nd Feb",
-      imagePath: "photos/22_Feb.png", // Replace with your image path
+      imagePath: "/src/photos/22_Feb.png", // Replace with your image path
       notes:
         "https://drive.google.com/file/d/1Z0QXtVshOEouWvxrvKOhvEdSHkc5PfdQ/view?usp=sharing", // Replace with your link
     },
