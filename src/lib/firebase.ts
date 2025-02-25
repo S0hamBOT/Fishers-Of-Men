@@ -277,6 +277,7 @@ const allowedEmails = [
   "sakshiwaghmode3239@gmail.com",
   "riyarajput7925@gmail.com",
   "kateshivam2007@gmail.com",
+  "gravi9867@gmail.com",
   // Add other emails here
 ];
 
