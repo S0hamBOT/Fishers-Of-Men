@@ -999,7 +999,7 @@ export function ProblemList({
   useEffect(() => {
     async function loadProgress() {
       if (user) {
-        const userData = await getUserData(user.uid);
+        const userData = await getUserData(user.uid); // Correct uid usage
         if (userData?.problemProgress) {
           const progress: Record<string, boolean> = {};
           Object.entries(userData.problemProgress).forEach(
@@ -1018,7 +1018,7 @@ export function ProblemList({
     if (!user) return;
 
     try {
-      await saveProblemProgress(user.uid, problemId, checked);
+      await saveProblemProgress(user.uid, problemId, checked, 0); // Correct uid usage
       setProblemProgress((prev) => ({ ...prev, [problemId]: checked }));
 
       if (checked) {

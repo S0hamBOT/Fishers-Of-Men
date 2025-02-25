@@ -75,8 +75,16 @@ export async function signInWithGoogle() {
 
 // User Data
 export async function getUserData(userId: string) {
-  const userDoc = await getDoc(doc(db, "users", userId));
-  return userDoc.data();
+  // Change here: Fetch practice data from users/{uid}/practiceData
+  const practiceDataRef = collection(db, "users", userId, "practiceData");
+  const practiceDataSnapshot = await getDocs(practiceDataRef);
+
+  const problemProgress: { [key: string]: any } = {};
+  practiceDataSnapshot.forEach((doc) => {
+    problemProgress[doc.id] = doc.data();
+  });
+
+  return { problemProgress }; // Return the problem progress
 }
 
 export async function updateUserProfile(userId: string, data: any) {
@@ -87,7 +95,8 @@ export async function updateUserProfile(userId: string, data: any) {
 export async function saveProblemProgress(
   userId: string,
   problemId: string,
-  completed: boolean
+  completed: boolean,
+  p0: number
 ) {
   // Cast problemData to ProblemData type to allow string indexing
   const typedProblemData = problemData as unknown as ProblemData;
@@ -97,11 +106,15 @@ export async function saveProblemProgress(
     throw new Error(`Problem with ID ${problemId} not found`);
   }
 
-  await updateDoc(doc(db, "users", userId), {
-    [`problemProgress.${problemId}`]: {
-      completed,
-      lastUpdated: Timestamp.now(),
-    },
+  // Corrected part: Store data in users/{userId}/practiceData
+  const practiceDocRef = doc(
+    collection(db, "users", userId, "practiceData"),
+    problemId
+  );
+
+  await setDoc(practiceDocRef, {
+    completed,
+    lastUpdated: Timestamp.now(),
   });
 
   if (completed) {
