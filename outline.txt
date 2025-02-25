@@ -3,7 +3,7 @@ Project Root
 ├── .bolt
 ├── dist
     ├── assets
-    |   ├── indec.html
+    |   ├── index.html
 ├── node_modules
 ├── src
 │   ├── components
