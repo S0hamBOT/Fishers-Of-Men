@@ -259,6 +259,24 @@ export const db = getFirestore(app);
 // Existing allowed emails
 const allowedEmails = [
   "sohamjadhav.tech@gmail.com",
+  "sohamjadhav.kyc@gmail.com",
+  "urjadoshi12@gmail.com",
+  "atharva.u2005@gmail.com",
+  "virajtarade1603@gmail.com",
+  "machalesamruddhi@gmail.com",
+  "vidhikabra123@gmail.com",
+  "yashsakhare011@gmail.com",
+  "snehawankhede5121@gmail.com",
+  "tejabhang2006@gmail.com",
+  "prachikasar05@gmail.com",
+  "kulkarniashu306@gmail.com",
+  "ghatulemukta11@gmail.com",
+  "swarahendre@gmail.com",
+  "manetejashree37@gmail.com",
+  "shrawaniaherwal2024.it@mmcoe.edu.in",
+  "sakshiwaghmode3239@gmail.com",
+  "riyarajput7925@gmail.com",
+  "kateshivam2007@gmail.com",
   // Add other emails here
 ];
 
