@@ -31,56 +31,6 @@
 * **Hosting:**
     * Cloudflare Pages
 
-## Project Structure
-
-├── .bolt                  # Bolt configuration (if applicable)
-├── dist                   # Production build output
-│   └── assets
-│       └── index.html
-├── node_modules           # Project dependencies
-├── src                    # Source code
-│   ├── components         # Reusable UI components
-│   │   ├── AuthRequired.tsx    # Component to protect routes
-│   │   ├── DashboardStats.tsx  # Component to show dashboard stats
-│   │   ├── RecentActivity.tsx  # Component to show recent activity
-│   │   ├── Sidebar.tsx         # Sidebar component
-│   │   ├── UpcomingEvents.tsx  # Component to show upcoming events
-│   │   └── practice
-│   │       ├── ProblemDetail.tsx # Details of a problem
-│   │       ├── ProblemList.tsx   # List of problems
-│   ├── contexts           # React context providers
-│   │   └── AuthContext.tsx   # Authentication context
-│   ├── data               # Static data
-│   │   └── problems.tsx      # Problem data
-│   ├── icons              # Icon assets
-│   ├── lib                # Utility libraries
-│   │   └── firebase.ts       # Firebase initialization
-│   ├── pages              # Application pages
-│   │   ├── Calendar.tsx      # Calendar page
-│   │   ├── Community.tsx     # Community page
-│   │   ├── Login.tsx         # Login page
-│   │   ├── Practice.tsx      # Practice page
-│   │   ├── Quiz.tsx          # Quiz page
-│   │   ├── Resources.tsx     # Resources page
-│   ├── photos             # Image assets
-│   ├── types              # TypeScript type definitions
-│   │   └── index.ts
-│   ├── App.tsx            # Root application component
-│   ├── index.css          # Global CSS styles
-│   ├── main.tsx           # Entry point
-│   ├── vite-env.d.ts      # TypeScript environment definitions
-├── .env                   # Environment variables
-├── .gitignore             # Git ignore file
-├── eslint.config.js      # Eslint configuration.
-├── index.html             # HTML entry point
-├── package.json           # Project dependencies and scripts
-├── package-lock.json      # Dependency lock file
-├── postcss.config.js      # PostCSS configuration
-├── tailwind.config.js     # Tailwind CSS configuration
-├── tsconfig.json          # TypeScript configuration
-├── tsconfig.app.json      # Typescript App configuration.
-├── tsconfig.node.json     # Typescript Node configuration.
-├── vite.config.ts        # Vite configuration
 
 ## Getting Started
 
