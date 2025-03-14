@@ -81,6 +81,7 @@ const allowedEmails = [
   "kateshivam2007@gmail.com",
   "thefanaticc0der@gmail.com",
   "atharvalandge2004@gmail.com",
+  "atharvalandge2022.comp@mmcoe.edu.in",
   // Add other emails here
 ];
 
