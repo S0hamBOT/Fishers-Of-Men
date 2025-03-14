@@ -80,7 +80,7 @@ const allowedEmails = [
   "riyarajput7925@gmail.com",
   "kateshivam2007@gmail.com",
   "thefanaticc0der@gmail.com",
-  // "atharvalandge2004@gmail.com",
+  "atharvalandge2004@gmail.com",
   // Add other emails here
 ];
 
