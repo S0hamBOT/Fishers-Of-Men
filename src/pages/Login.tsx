@@ -178,11 +178,11 @@
 //   );
 // }
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, db } from "../lib/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import loginGif from "/src/icons/giphy-3.gif";
 import googleLogo from "/src/icons/google-logo.png";
 
@@ -193,18 +193,44 @@ export function Login() {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
+  // ✅ Check if the user is in the 'allowedUsers' collection
   const checkUserAccess = async (userEmail: string | null) => {
+    if (!userEmail) return false;
+
     try {
       const allowedUsersRef = collection(db, "allowedUsers");
       const snapshot = await getDocs(allowedUsersRef);
       const allowedEmails = snapshot.docs.map((doc) => doc.id);
-      return userEmail !== null && allowedEmails.includes(userEmail);
+
+      if (!allowedEmails.includes(userEmail)) {
+        return false; // ❌ User is NOT in the allowed list
+      }
+
+      // ✅ User is allowed, now ensure they have a document in 'Users' collection
+      const userRef = doc(db, "Users", userEmail);
+      const userDoc = await getDoc(userRef);
+
+      if (!userDoc.exists()) {
+        console.log("Creating user document for:", userEmail);
+        await setDoc(userRef, {
+          email: userEmail,
+          createdAt: new Date().toISOString(),
+          metrics: {
+            currentStreak: 0,
+            lastSolvedDate: null,
+            problemsSolved: [],
+          },
+        });
+      }
+
+      return true;
     } catch (error) {
       console.error("Error checking user access:", error);
       return false;
     }
   };
 
+  // ✅ Handle Google Sign-In
   const handleGoogleSignIn = async () => {
     setError("");
     setIsLoading(true);
@@ -214,6 +240,7 @@ export function Login() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
+      // Check if user is allowed and ensure they have a profile in 'Users'
       const isAllowed = await checkUserAccess(user.email);
       if (!isAllowed) {
         throw new Error(
@@ -243,19 +270,6 @@ export function Login() {
           {error}
         </div>
       )}
-      {/* <button
-        type="button"
-        className="absolute top-[59%] left-[82%] transform -translate-x-1/2 -translate-y-1/2"
-        onClick={handleGoogleSignIn}
-        disabled={isLoading}
-      >
-        <img
-          src={googleLogo}
-          alt="Google Sign-In"
-          className="h-12 w-12 hover:scale-110 transition duration-300"
-        />
-      </button> */}
-
       <button
         type="button"
         className="absolute top-[59%] left-[82%] transform -translate-x-1/2 -translate-y-1/2"
