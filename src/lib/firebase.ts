@@ -396,6 +396,24 @@ export async function signInWithGoogle() {
       throw new Error("Access Denied: You are not registered for this course.");
     }
 
+    const userRef = doc(db, "Users", user.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) {
+      await setDoc(userRef, {
+        name: user.displayName || "Unknown",
+        email: user.email,
+        photoURL: user.photoURL || "",
+        metrics: {
+          lastSolvedDate: null,
+          currentStreak: 0,
+          problemsSolved: [],
+          timeSpent: 0,
+          totalProblems: Object.keys(problemData).length,
+        },
+      });
+    }
+
     return user;
   } catch (error) {
     console.error("Login failed:", (error as any).message);
