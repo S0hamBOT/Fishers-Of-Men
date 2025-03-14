@@ -381,6 +381,10 @@ const allowedEmails = [
   "atharvalandge2022.comp@mmcoe.edu.in",
 ];
 
+export async function logActivity(userId: string, activity: any) {
+  await addDoc(collection(db, "users", userId, "activities"), activity);
+}
+
 export async function signInWithGoogle() {
   const provider = new GoogleAuthProvider();
   try {
