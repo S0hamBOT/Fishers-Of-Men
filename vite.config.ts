@@ -27,8 +27,9 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: path.resolve(__dirname, "src/photos"),
-          dest: "./", // Change dest to the root of dist
+          // use a glob pattern so the plugin picks up files inside the folder
+          src: "src/photos/*",
+          dest: "./", // copy into the root of dist
         },
       ],
     }),

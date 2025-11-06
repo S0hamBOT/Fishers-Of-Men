@@ -249,12 +249,26 @@ interface UserMetrics {
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
+  // Bypass auth on localhost or when VITE_DISABLE_AUTH=true (dev only)
+  const disableAuthEnv = (import.meta.env.VITE_DISABLE_AUTH || "").toString() === "true";
+  const isLocalhost = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsAuthenticated(!!user);
     });
     return () => unsubscribe();
   }, []);
+
+  if (disableAuthEnv || isLocalhost) {
+    // Show app without authentication
+    return (
+      <div className="flex min-h-screen bg-gray-100">
+        <Sidebar />
+        <main className="flex-1 ml-64 overflow-y-auto">{children}</main>
+      </div>
+    );
+  }
 
   if (isAuthenticated === null) {
     return <div>Loading...</div>;

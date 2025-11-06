@@ -50,6 +50,36 @@ const firebaseConfig = {
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
+// Validate required Firebase env vars at runtime (gives a clearer error than the
+// Firebase SDK's `auth/invalid-api-key` when the API key is missing).
+const requiredVars = [
+  firebaseConfig.apiKey,
+  firebaseConfig.authDomain,
+  firebaseConfig.projectId,
+  firebaseConfig.storageBucket,
+  firebaseConfig.messagingSenderId,
+  firebaseConfig.appId,
+];
+
+if (requiredVars.some((v) => !v)) {
+  // Helpful error for developers: point to README and env var names
+  const missing = [
+    !firebaseConfig.apiKey && "VITE_FIREBASE_API_KEY",
+    !firebaseConfig.authDomain && "VITE_FIREBASE_AUTH_DOMAIN",
+    !firebaseConfig.projectId && "VITE_FIREBASE_PROJECT_ID",
+    !firebaseConfig.storageBucket && "VITE_FIREBASE_STORAGE_BUCKET",
+    !firebaseConfig.messagingSenderId && "VITE_FIREBASE_MESSAGING_SENDER_ID",
+    !firebaseConfig.appId && "VITE_FIREBASE_APP_ID",
+  ].filter(Boolean);
+
+  console.error(
+    "Firebase configuration is missing. Add the following environment variables to a .env.local file at the project root:",
+    missing
+  );
+  throw new Error(
+    `Missing Firebase env vars: ${missing.join(", ")}. See README.md for setup instructions.`
+  );
+}
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
